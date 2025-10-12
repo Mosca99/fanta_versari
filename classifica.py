@@ -112,7 +112,7 @@ def pagina_inserimento_risultati():
             bonus = calcola_bonus(punteggi)
             salva_giornata(numero_giornata, punteggi, bonus)
             st.success(f"Giornata {numero_giornata} salvata con successo!")
-            st.experimental_rerun()
+            st.rerun()
 
     else:
         if password_input:
