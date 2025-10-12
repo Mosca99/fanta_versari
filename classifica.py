@@ -72,12 +72,13 @@ def calcola_classifica_generale(df_giornate):
 
 # --- Pagina 1: Classifica Generale ---
 def pagina_classifica_generale(df_giornate):
-    st.header("🏆 Classifica Generale")
+    st.header("🏆 Classifica Generale (solo Bonus per il grafico)")
     df_generale = calcola_classifica_generale(df_giornate)
 
     if not df_generale.empty:
         st.dataframe(df_generale, use_container_width=True)
-        st.bar_chart(df_generale.set_index("Squadra")[["Bonus Totale", "Punteggio Totale"]])
+        # Grafico basato solo sui bonus totali
+        st.bar_chart(df_generale.set_index("Squadra")["Bonus Totale"])
     else:
         st.info("Nessuna giornata registrata ancora. Inserisci la prima per iniziare!")
 
@@ -91,7 +92,7 @@ def pagina_classifiche_giornate(df_giornate):
         df_sel["Totale Giornata"] = df_sel["Punteggio Reale"] + df_sel["Bonus"]
         df_sel = df_sel.sort_values(by="Totale Giornata", ascending=False)
         st.dataframe(df_sel, use_container_width=True)
-        st.bar_chart(df_sel.set_index("Squadra")[["Totale Giornata"]])
+        st.bar_chart(df_sel.set_index("Squadra")["Totale Giornata"])
     else:
         st.info("Nessuna giornata registrata ancora.")
 
