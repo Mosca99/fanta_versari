@@ -1,1 +1,12 @@
-
+{
+    "giornate": {
+        "Giornata 1": {
+            "Porcellona": 67.5,
+            "Hellas Madonna": 72.5,
+            "Dio Kean": 72.0,
+            "Main Na Gioia": 77.5,
+            "Deportivo La Cadrega": 84.0,
+            "Pro Secco": 70.0
+        }
+    }
+}
