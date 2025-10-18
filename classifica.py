@@ -172,11 +172,12 @@ elif menu == "🔒 Inserisci Risultati":
 
         for squadra in SQUADRE:
             nuovi_punteggi[squadra] = st.number_input(
-                f"Punteggio {squadra}",
-                min_value=0,
-                step=1,
-                key=squadra
-            )
+            f"Punteggio {squadra}",
+            min_value=0.0,
+            step=0.1,
+            format="%.1f",
+            key=squadra
+        )
 
         if st.button("💾 Salva giornata"):
             risultati["giornate"][nome_giornata] = nuovi_punteggi
