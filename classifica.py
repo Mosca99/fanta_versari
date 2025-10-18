@@ -66,7 +66,7 @@ def calcola_bonus(punteggi):
 
     bonus_mapping = {1: 1, 2: 0.5, 3: 0, 4: 0, 5: -0.5, 6: -1}
 
-    df["Posizione"] = df["Punteggio"].rank(method="min", ascending=False).astype(int)
+    df["Posizione"] = df["Punteggio"].rank(method="min", ascending=False).astype(float)
     df["Bonus"] = df["Posizione"].map(bonus_mapping).fillna(0)
 
     return dict(zip(df["Squadra"], df["Bonus"]))
